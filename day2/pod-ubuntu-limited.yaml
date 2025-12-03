@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: giropops-ubuntu
+  namespace: dk8s
+  labels:
+    run: giropops-ubuntu
+spec:
+  containers:
+  - name: girus
+    image: ubuntu
+    args:
+    - sleep
+    - infinity
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "0.5"
+      requests: 
+        memory: "64Mi"
+        cpu: "0.3"
