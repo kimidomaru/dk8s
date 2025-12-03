@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: giropops-empty
+  namespace: dk8s
+  labels:
+    run: giropops-empty
+spec:
+  containers:
+  - name: girus
+    image: ubuntu
+    args:
+    - sleep
+    - infinity
+    volumeMounts: 
+    - name: first-emptydir
+      mountPath: /mnt
+  volumes:
+  - name: first-emptydir
+    emptyDir:
+      sizeLimit: 256Mi
