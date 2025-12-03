@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: wb-pod
+  name: wb-pod
+  namespace: labch2
+spec:
+  containers:
+  - name: wb-pod
+    command: ["stress"]
+    args:
+      - --vm
+      - "1"
+      - --vm-bytes
+      - 250M
+      - --vm-hang
+      - "1"
+    image: polinux/stress
+    resources: 
+      limits:
+        memory: 300Mi
+      requests:
+        memory: 150Mi
