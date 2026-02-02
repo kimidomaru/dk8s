@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  namespace: dk8s
+spec:
+  containers:
+  - name: my-container
+    image: my-private-image
+  imagePullSecrets:
+  - name: docker-example-secret

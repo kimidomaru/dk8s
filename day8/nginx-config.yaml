@@ -1,0 +1,11 @@
+apiVersion: v1
+data:
+  nginx.conf: "events {}\n\nhttp {\n  server{\n    listen 80;\n    listen 443 ssl;\n\n
+    \   ssl_certificate /etc/nginx/tls/cert.crt;\n    ssl_certificate_key /etc/nginx/tls/private-key.pem;\n\n
+    \   location / { \n      return 200 'Welcome to my Nginx!\\n';\n      add_header
+    Content-Type text/plain;\n    }\n  }\n\n}\n"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: nginx-config
+  namespace: dk8s
