@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: giropops-pass-static
+  namespace: dk8s
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /static
+        pathType: Prefix
+        backend: 
+          service: 
+            name: giropops-pass
+            port:
+              number: 5000

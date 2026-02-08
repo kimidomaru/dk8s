@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: giropops-pass
+  name: giropops-pass
+  namespace: dk8s
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: giropops-pass
+  template:
+    metadata:
+      labels:
+        app: giropops-pass
+    spec:
+      containers:
+      - image: linuxtips/giropops-senhas:1.0
+        name: giropops-pass
+        env:
+        - name: REDIS_HOST
+          value: redis-svc
+        ports:
+        - containerPort: 5000
+        imagePullPolicy: Always
